@@ -10,7 +10,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f
 var __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/m5-football-website/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__ = __turbopack_context__.i("[project]/m5-football-website/node_modules/lucide-react/dist/esm/icons/play.js [app-client] (ecmascript) <export default as Play>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__ = __turbopack_context__.i("[project]/m5-football-website/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-client] (ecmascript) <export default as ChevronDown>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/m5-football-website/lib/utils.ts [app-client] (ecmascript)"); // optional helper
+var __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/m5-football-website/lib/utils.ts [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
@@ -23,19 +23,27 @@ function Hero() {
     const videoRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Hero.useEffect": ()=>{
-            // Preload video + fallback control
             if (videoRef.current) {
-                videoRef.current.addEventListener("canplaythrough", {
-                    "Hero.useEffect": ()=>setIsVideoLoaded(true)
-                }["Hero.useEffect"]);
-                videoRef.current.addEventListener("error", {
-                    "Hero.useEffect": ()=>setIsVideoLoaded(false)
-                }["Hero.useEffect"]);
+                const video = videoRef.current;
+                const handleCanPlay = {
+                    "Hero.useEffect.handleCanPlay": ()=>setIsVideoLoaded(true)
+                }["Hero.useEffect.handleCanPlay"];
+                const handleError = {
+                    "Hero.useEffect.handleError": ()=>setIsVideoLoaded(false)
+                }["Hero.useEffect.handleError"];
+                video.addEventListener("canplaythrough", handleCanPlay);
+                video.addEventListener("error", handleError);
+                return ({
+                    "Hero.useEffect": ()=>{
+                        video.removeEventListener("canplaythrough", handleCanPlay);
+                        video.removeEventListener("error", handleError);
+                    }
+                })["Hero.useEffect"];
             }
         }
     }["Hero.useEffect"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        className: "relative w-full min-h-screen mt-2 flex items-center justify-center overflow-hidden pt-16 lg:pt-20",
+        className: "relative w-full min-h-screen flex flex-col justify-center items-center overflow-hidden pt-16 pb-20 lg:pt-20",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute inset-0 -z-10",
@@ -55,7 +63,7 @@ function Hero() {
                                 type: "video/mp4"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/hero.tsx",
-                                lineNumber: 38,
+                                lineNumber: 44,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("source", {
@@ -63,109 +71,109 @@ function Hero() {
                                 type: "video/webm"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/hero.tsx",
-                                lineNumber: 39,
+                                lineNumber: 45,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/m5-football-website/components/hero.tsx",
-                        lineNumber: 25,
+                        lineNumber: 31,
                         columnNumber: 9
                     }, this),
                     !isVideoLoaded && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0 bg-cover bg-center bg-no-repeat",
+                        className: "absolute inset-0 bg-cover bg-center",
                         style: {
                             backgroundImage: "url('/football-match-trophy.jpg')"
                         }
                     }, void 0, false, {
                         fileName: "[project]/m5-football-website/components/hero.tsx",
-                        lineNumber: 44,
+                        lineNumber: 50,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/80"
+                        className: "absolute inset-0 bg-gradient-to-br from-black/90 via-black/70 to-black/90"
                     }, void 0, false, {
                         fileName: "[project]/m5-football-website/components/hero.tsx",
-                        lineNumber: 53,
+                        lineNumber: 57,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"
+                        className: "absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"
                     }, void 0, false, {
                         fileName: "[project]/m5-football-website/components/hero.tsx",
-                        lineNumber: 54,
+                        lineNumber: 58,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/m5-football-website/components/hero.tsx",
-                lineNumber: 24,
+                lineNumber: 30,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute inset-0 pointer-events-none",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute top-0 left-0 w-full h-96 bg-gradient-radial from-primary/20 to-transparent blur-3xl animate-pulse"
+                    className: "absolute top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse"
                 }, void 0, false, {
                     fileName: "[project]/m5-football-website/components/hero.tsx",
-                    lineNumber: 59,
+                    lineNumber: 63,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/m5-football-website/components/hero.tsx",
-                lineNumber: 58,
+                lineNumber: 62,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative mt-2 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center",
+                className: "relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 text-center",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        className: "text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight mb-6",
+                        className: "font-black tracking-tighter leading-none mb-6",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "block bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent drop-shadow-2xl",
+                                className: "block text-6xl xs:text-7xl sm:text-8xl md:text-9xl lg:text-9xl xl:text-[10rem] bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent drop-shadow-2xl",
                                 children: "M5"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/hero.tsx",
-                                lineNumber: 68,
+                                lineNumber: 75,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "block bg-gradient-to-r from-primary via-yellow-400 to-primary bg-clip-text text-transparent drop-shadow-2xl animate-pulse",
+                                className: "block text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[11rem] bg-gradient-to-r from-primary via-yellow-400 to-primary bg-clip-text text-transparent drop-shadow-2xl animate-pulse",
                                 children: "FOOTBALL"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/hero.tsx",
-                                lineNumber: 71,
+                                lineNumber: 78,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "block text-white/95 drop-shadow-2xl mt-2",
+                                className: "block text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl mt-2 text-white/95 drop-shadow-2xl",
                                 children: "CONFEDERATION"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/hero.tsx",
-                                lineNumber: 74,
+                                lineNumber: 81,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/m5-football-website/components/hero.tsx",
-                        lineNumber: 67,
+                        lineNumber: 74,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-xl md:text-2xl lg:text-3xl text-white/80 font-light mb-12 max-w-4xl mx-auto leading-relaxed",
+                        className: "text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/80 font-light mb-10 max-w-4xl mx-auto leading-relaxed px-4",
                         children: "Passion • Unity • Excellence – The heartbeat of African continental football"
                     }, void 0, false, {
                         fileName: "[project]/m5-football-website/components/hero.tsx",
-                        lineNumber: 80,
+                        lineNumber: 87,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex flex-col sm:flex-row gap-6 justify-center mb-16",
+                        className: "flex flex-col sm:flex-row gap-5 justify-center items-center mb-16",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                 href: "/watch",
-                                className: "group relative inline-flex items-center justify-center px-10 py-5 bg-primary text-background text-lg font-bold rounded-xl overflow-hidden shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105",
+                                className: "group relative inline-flex items-center justify-center w-full sm:w-auto px-10 py-5 bg-primary text-background text-lg sm:text-xl font-bold rounded-xl overflow-hidden shadow-2xl hover:shadow-primary/60 transition-all duration-300 hover:scale-105",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "relative z-10 flex items-center gap-3",
@@ -175,46 +183,46 @@ function Hero() {
                                                 fill: "currentColor"
                                             }, void 0, false, {
                                                 fileName: "[project]/m5-football-website/components/hero.tsx",
-                                                lineNumber: 92,
+                                                lineNumber: 99,
                                                 columnNumber: 15
                                             }, this),
                                             "Watch Live Now"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/m5-football-website/components/hero.tsx",
-                                        lineNumber: 91,
+                                        lineNumber: 98,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "absolute inset-0 bg-gradient-to-r from-yellow-500 to-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500"
                                     }, void 0, false, {
                                         fileName: "[project]/m5-football-website/components/hero.tsx",
-                                        lineNumber: 98,
+                                        lineNumber: 105,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/m5-football-website/components/hero.tsx",
-                                lineNumber: 87,
+                                lineNumber: 94,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                 href: "/highlights",
-                                className: "px-10 py-5 border-2 border-white/50 text-white font-bold rounded-xl backdrop-blur-sm hover:bg-white/10 hover:border-primary transition-all duration-300",
+                                className: "w-full sm:w-auto px-10 py-5 border-2 border-white/50 text-white font-bold rounded-xl backdrop-blur-md hover:bg-white/10 hover:border-primary transition-all duration-300",
                                 children: "Latest Highlights"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/hero.tsx",
-                                lineNumber: 101,
+                                lineNumber: 108,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/m5-football-website/components/hero.tsx",
-                        lineNumber: 86,
+                        lineNumber: 93,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid grid-cols-3 gap-8 max-w-4xl mx-auto pt-16 border-t border-white/20",
+                        className: "grid grid-cols-3 gap-6 sm:gap-10 max-w-3xl mx-auto pt-12 border-t border-white/20",
                         children: [
                             {
                                 number: "156",
@@ -229,61 +237,59 @@ function Hero() {
                                 label: "Fans Worldwide"
                             }
                         ].map((stat, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "group cursor-default",
-                                "data-aos": "fade-up",
-                                "data-aos-delay": i * 100,
+                                className: "text-center",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "text-5xl md:text-6xl font-black text-primary mb-2 group-hover:scale-110 transition-transform duration-300",
+                                        className: "text-4xl sm:text-5xl md:text-6xl font-black text-white mb-2 group-hover:scale-110 transition-transform duration-300",
                                         children: stat.number
                                     }, void 0, false, {
                                         fileName: "[project]/m5-football-website/components/hero.tsx",
-                                        lineNumber: 122,
+                                        lineNumber: 124,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-white/70 text-sm md:text-base font-medium tracking-wider uppercase",
+                                        className: "text-white text-xs sm:text-sm md:text-base font-medium tracking-wider uppercase",
                                         children: stat.label
                                     }, void 0, false, {
                                         fileName: "[project]/m5-football-website/components/hero.tsx",
-                                        lineNumber: 125,
+                                        lineNumber: 127,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, i, true, {
                                 fileName: "[project]/m5-football-website/components/hero.tsx",
-                                lineNumber: 116,
+                                lineNumber: 123,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/m5-football-website/components/hero.tsx",
-                        lineNumber: 110,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
-                            className: "w-8 h-8 text-white/60"
-                        }, void 0, false, {
-                            fileName: "[project]/m5-football-website/components/hero.tsx",
-                            lineNumber: 134,
-                            columnNumber: 11
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/m5-football-website/components/hero.tsx",
-                        lineNumber: 133,
+                        lineNumber: 117,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/m5-football-website/components/hero.tsx",
-                lineNumber: 63,
+                lineNumber: 67,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
+                    className: "w-8 h-8 sm:w-10 sm:h-10 text-white/60"
+                }, void 0, false, {
+                    fileName: "[project]/m5-football-website/components/hero.tsx",
+                    lineNumber: 137,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/m5-football-website/components/hero.tsx",
+                lineNumber: 136,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/m5-football-website/components/hero.tsx",
-        lineNumber: 22,
+        lineNumber: 28,
         columnNumber: 5
     }, this);
 }
@@ -542,19 +548,36 @@ function LiveScores() {
     ];
     const liveMatches = matches.filter((m)=>m.status === "Live");
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        className: "py-10 lg:py-18 bg-linear-to-b from-background to-secondary/5",
+        className: "py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-background via-background to-secondary/10",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "text-center mb-16",
+                    className: "text-center mb-10 sm:mb-14",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "text-5xl md:text-6xl font-black mb-4 bg-linear-to-r from-white to-white/80 bg-clip-text text-transparent",
+                            className: "text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-3",
                             children: [
-                                "Live Scores",
-                                " ",
-                                liveMatches.length > 0 && `• ${liveMatches.length} Live Now`
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent",
+                                    children: "Live Scores"
+                                }, void 0, false, {
+                                    fileName: "[project]/m5-football-website/components/live-scores.tsx",
+                                    lineNumber: 59,
+                                    columnNumber: 13
+                                }, this),
+                                liveMatches.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "block sm:inline ml-0 sm:ml-4 text-primary text-3xl sm:text-4xl md:text-5xl",
+                                    children: [
+                                        "• ",
+                                        liveMatches.length,
+                                        " Live Now"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/m5-football-website/components/live-scores.tsx",
+                                    lineNumber: 63,
+                                    columnNumber: 15
+                                }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/m5-football-website/components/live-scores.tsx",
@@ -562,11 +585,11 @@ function LiveScores() {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-xl text-muted-foreground",
+                            className: "text-base sm:text-lg text-muted-foreground mt-3 max-w-2xl mx-auto",
                             children: "Real-time action from across all M5 competitions"
                         }, void 0, false, {
                             fileName: "[project]/m5-football-website/components/live-scores.tsx",
-                            lineNumber: 62,
+                            lineNumber: 68,
                             columnNumber: 11
                         }, this)
                     ]
@@ -576,53 +599,75 @@ function LiveScores() {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "grid md:grid-cols-2 gap-8 max-w-5xl mx-auto",
+                    className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto",
                     children: matches.map((match)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("relative overflow-hidden rounded-2xl border backdrop-blur-sm transition-all duration-500", match.status === "Live" ? "bg-gradient-to-br from-primary/10 via-card to-card border-primary/50 shadow-2xl shadow-primary/20 scale-105" : "bg-card/80 border-border hover:border-primary/30 hover:shadow-xl"),
+                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("relative rounded-2xl border overflow-hidden backdrop-blur-xl transition-all duration-500 hover:shadow-2xl", match.status === "Live" ? "bg-gradient-to-br from-primary/20 via-card/95 to-card/90 border-primary/60 shadow-2xl shadow-primary/30 ring-2 ring-primary/20 scale-100 sm:scale-105" : "bg-card/90 border-border/70 hover:border-primary/40 hover:bg-card"),
                             children: [
                                 match.status === "Live" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "absolute top-4 right-4 flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-full text-xs font-bold animate-pulse shadow-lg",
+                                    className: "absolute top-3 right-3 z-10 flex items-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-bold rounded-full animate-pulse shadow-lg",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "w-2 h-2 bg-white rounded-full animate-ping"
+                                            className: "w-2 h-2 bg-white rounded-full animate-ping absolute -left-1"
                                         }, void 0, false, {
                                             fileName: "[project]/m5-football-website/components/live-scores.tsx",
-                                            lineNumber: 82,
+                                            lineNumber: 88,
                                             columnNumber: 19
                                         }, this),
-                                        "LIVE"
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "relative",
+                                            children: [
+                                                "LIVE • ",
+                                                match.minute,
+                                                "'"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/m5-football-website/components/live-scores.tsx",
+                                            lineNumber: 89,
+                                            columnNumber: 19
+                                        }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/m5-football-website/components/live-scores.tsx",
-                                    lineNumber: 81,
+                                    lineNumber: 87,
+                                    columnNumber: 17
+                                }, this),
+                                match.status === "Finished" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "absolute top-3 right-3 px-3 py-1.5 bg-muted/80 text-muted-foreground text-xs font-semibold rounded-full",
+                                    children: "Full Time"
+                                }, void 0, false, {
+                                    fileName: "[project]/m5-football-website/components/live-scores.tsx",
+                                    lineNumber: 95,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "p-8",
+                                    className: "p-5 sm:p-7 lg:p-8",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex items-center justify-between mb-6",
+                                            className: "flex items-center justify-between mb-5",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-sm font-bold text-primary uppercase tracking-wider",
+                                                    className: "text-xs sm:text-sm font-bold text-primary uppercase tracking-wider",
                                                     children: match.competition
                                                 }, void 0, false, {
                                                     fileName: "[project]/m5-football-website/components/live-scores.tsx",
-                                                    lineNumber: 90,
+                                                    lineNumber: 103,
                                                     columnNumber: 19
                                                 }, this),
-                                                match.status === "Finished" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-xs text-muted-foreground",
-                                                    children: "Full Time"
-                                                }, void 0, false, {
+                                                match.status === "Live" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-xl font-bold text-primary animate-pulse",
+                                                    children: [
+                                                        match.minute,
+                                                        "'"
+                                                    ]
+                                                }, void 0, true, {
                                                     fileName: "[project]/m5-football-website/components/live-scores.tsx",
-                                                    lineNumber: 94,
+                                                    lineNumber: 107,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/m5-football-website/components/live-scores.tsx",
-                                            lineNumber: 89,
+                                            lineNumber: 102,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$components$2f$match$2d$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -630,49 +675,49 @@ function LiveScores() {
                                             isLive: match.status === "Live"
                                         }, void 0, false, {
                                             fileName: "[project]/m5-football-website/components/live-scores.tsx",
-                                            lineNumber: 100,
+                                            lineNumber: 114,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/m5-football-website/components/live-scores.tsx",
-                                    lineNumber: 87,
+                                    lineNumber: 100,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, match.id, true, {
                             fileName: "[project]/m5-football-website/components/live-scores.tsx",
-                            lineNumber: 70,
+                            lineNumber: 76,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/m5-football-website/components/live-scores.tsx",
-                    lineNumber: 68,
+                    lineNumber: 74,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "text-center mt-16",
+                    className: "text-center mt-12 sm:mt-16",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                         href: "/live",
-                        className: "group inline-flex items-center gap-3 px-10 py-5 bg-primary text-black font-bold text-lg rounded-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-lg",
+                        className: "group inline-flex items-center gap-3 px-8 py-4 sm:px-10 sm:py-5 bg-primary text-black font-bold text-base sm:text-lg rounded-xl shadow-xl hover:shadow-primary/50 hover:scale-105 transition-all duration-300",
                         children: [
                             "View All Live Matches",
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
-                                className: "w-5 h-5 group-hover:translate-x-2 transition-transform"
+                                className: "w-5 h-5 group-hover:translate-x-2 transition-transform duration-300"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/live-scores.tsx",
-                                lineNumber: 113,
+                                lineNumber: 127,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/m5-football-website/components/live-scores.tsx",
-                        lineNumber: 108,
+                        lineNumber: 122,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/m5-football-website/components/live-scores.tsx",
-                    lineNumber: 107,
+                    lineNumber: 121,
                     columnNumber: 9
                 }, this)
             ]
@@ -1632,15 +1677,15 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f
 ;
 function Sponsors() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        className: "py-20 lg:py-28 bg-[#0A1E3C]",
+        className: "py-16 sm:py-20 lg:py-28 bg-[#0A1E3C] overflow-hidden",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center",
+            className: "max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mb-16",
+                    className: "mb-12 sm:mb-16 lg:mb-20",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-primary font-bold uppercase tracking-wider text-sm mb-4",
+                            className: "text-primary font-bold uppercase tracking-widest text-xs sm:text-sm mb-3 sm:mb-4",
                             children: "Proudly Presented By"
                         }, void 0, false, {
                             fileName: "[project]/m5-football-website/components/sponsors.tsx",
@@ -1648,7 +1693,7 @@ function Sponsors() {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "text-5xl md:text-6xl font-black text-white mb-6",
+                            className: "text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight",
                             children: "Our Title Partner"
                         }, void 0, false, {
                             fileName: "[project]/m5-football-website/components/sponsors.tsx",
@@ -1656,7 +1701,7 @@ function Sponsors() {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-xl text-white/70 max-w-2xl mx-auto",
+                            className: "mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed px-4",
                             children: "Official sponsor of the M5 Football Confederation and all its competitions"
                         }, void 0, false, {
                             fileName: "[project]/m5-football-website/components/sponsors.tsx",
@@ -1673,24 +1718,24 @@ function Sponsors() {
                     className: "relative inline-block group",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "absolute inset-0 bg-primary/30 blur-3xl scale-75 group-hover:scale-100 transition-transform duration-1000"
+                            className: "absolute inset-0 bg-primary/40 blur-3xl scale-90 sm:scale-75 lg:scale-90 group-hover:scale-110 transition-transform duration-1000 opacity-70"
                         }, void 0, false, {
                             fileName: "[project]/m5-football-website/components/sponsors.tsx",
                             lineNumber: 27,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-12 lg:p-20 shadow-2xl hover:shadow-primary/30 transition-all duration-700 hover:scale-105",
+                            className: "relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 sm:p-14 lg:p-20 shadow-2xl hover:shadow-primary/40 transition-all duration-700 hover:scale-105",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 src: "/sponsors/mtn-white.svg",
-                                alt: "MTN - Title Partner of M5 Football Confederation",
-                                width: 420,
-                                height: 180,
-                                className: "mx-auto grayscale group-hover:grayscale-0 transition-all duration-1000",
+                                alt: "MTN - Official Title Partner of M5 Football Confederation",
+                                width: 500,
+                                height: 220,
+                                className: "mx-auto w-48 sm:w-64 md:w-80 lg:w-[420px] h-auto grayscale group-hover:grayscale-0 transition-all duration-1000 drop-shadow-2xl",
                                 priority: true
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/sponsors.tsx",
-                                lineNumber: 32,
+                                lineNumber: 31,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
@@ -1699,17 +1744,17 @@ function Sponsors() {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "absolute -top-6 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent"
+                            className: "absolute -top-8 sm:-top-10 left-1/2 -translate-x-1/2 w-24868 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-80"
                         }, void 0, false, {
                             fileName: "[project]/m5-football-website/components/sponsors.tsx",
-                            lineNumber: 46,
+                            lineNumber: 45,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "absolute -bottom-6 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent"
+                            className: "absolute -bottom-8 sm:-bottom-10 left-1/2 -translate-x-1/2 w-48 sm:w-64 lg:w-80 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-80"
                         }, void 0, false, {
                             fileName: "[project]/m5-football-website/components/sponsors.tsx",
-                            lineNumber: 47,
+                            lineNumber: 46,
                             columnNumber: 11
                         }, this)
                     ]
@@ -1719,28 +1764,28 @@ function Sponsors() {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mt-20",
+                    className: "mt-16 sm:mt-20 lg:mt-24",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                         href: "/partnerships",
-                        className: "inline-flex items-center gap-3 text-white/80 hover:text-primary font-semibold text-lg transition-colors",
+                        className: "group inline-flex items-center gap-3 text-white/80 hover:text-primary font-semibold text-base sm:text-lg lg:text-xl transition-all duration-300 hover:gap-5",
                         children: [
                             "Learn more about our partnership",
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
-                                className: "w-5 h-5 group-hover:translate-x-2 transition-transform"
+                                className: "w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:translate-x-3"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/sponsors.tsx",
-                                lineNumber: 57,
+                                lineNumber: 56,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/m5-football-website/components/sponsors.tsx",
-                        lineNumber: 52,
+                        lineNumber: 51,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/m5-football-website/components/sponsors.tsx",
-                    lineNumber: 51,
+                    lineNumber: 50,
                     columnNumber: 9
                 }, this)
             ]

@@ -1,47 +1,30 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown, Globe } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isCompetitionsOpen, setIsCompetitionsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const desktopDropdownTimeout = useRef<NodeJS.Timeout | null>(null);
+  // Close mobile menu on any navigation
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
-  // Scroll effect: fully solid navy after scrolling
+  // Scroll effect
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Hover handling for desktop dropdown
-  const handleMouseEnter = () => {
-    if (desktopDropdownTimeout.current)
-      clearTimeout(desktopDropdownTimeout.current);
-    setIsCompetitionsOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    desktopDropdownTimeout.current = setTimeout(() => {
-      setIsCompetitionsOpen(false);
-    }, 150);
-  };
 
   return (
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        // Base: Solid dark navy (your requested background)
-        "bg-[#0A1E3C]", // ← CAF/Official dark navy
-        // When scrolled → slightly deeper + stronger shadow
-        isScrolled && "bg-[#07152E] shadow-2xl shadow-black/50"
+        "bg-[#0A1E3C]",
+        isScrolled && "bg-[#07152E] shadow-2xl shadow-black/60"
       )}
     >
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,7 +32,8 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
+            onClick={closeMobileMenu}
+            className="flex items-center gap-3 group"
             aria-label="M5 Football Confederation - Home"
           >
             <div className="relative">
@@ -59,79 +43,31 @@ export default function Navbar() {
               <div className="absolute -inset-1 bg-primary/30 blur-xl scale-0 group-hover:scale-100 transition-transform duration-500" />
             </div>
             <span className="hidden lg:inline text-2xl font-bold tracking-wider bg-gradient-to-r from-primary to-yellow-500 bg-clip-text text-transparent">
-              M5FC
+              M55FC
             </span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
-            <NavLink href="/">Home</NavLink>
+            <NavLink href="/" onClick={closeMobileMenu}>
+              Home
+            </NavLink>
+            <NavLink href="/competitions" onClick={closeMobileMenu}>
+              Competitions
+            </NavLink>
+            <NavLink href="/news" onClick={closeMobileMenu}>
+              News
+            </NavLink>
+            <NavLink href="/live" onClick={closeMobileMenu}>
+              Live Scores
+            </NavLink>
+            <NavLink href="/teams" onClick={closeMobileMenu}>
+              Teams
+            </NavLink>
 
-            {/* Competitions Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <button
-                aria-expanded={isCompetitionsOpen}
-                className="flex items-center gap-1.5 px-4 py-3 rounded-lg hover:bg-white/10 transition-all duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-              >
-                <span className="font-medium text-white">Competitions</span>
-                <ChevronDown
-                  className={cn(
-                    "w-4 h-4 text-white transition-transform duration-300",
-                    isCompetitionsOpen && "rotate-180 text-primary"
-                  )}
-                />
-              </button>
-
-              {/* Dropdown */}
-              <div
-                className={cn(
-                  "absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-[#0A1E3C] border border-white/10 rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 origin-top",
-                  isCompetitionsOpen
-                    ? "opacity-100 visible scale-100"
-                    : "opacity-0 invisible scale-95"
-                )}
-              >
-                <div className="p-4 space-y-1">
-                  {[
-                    { name: "M5 League", href: "/competitions/m5-league" },
-                    { name: "M5 Cup", href: "/competitions/m5-cup" },
-                    {
-                      name: "Youth Championships",
-                      href: "/competitions/youth",
-                    },
-                    { name: "Women's League", href: "/competitions/women" },
-                  ].map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="block px-5 py-3 rounded-lg hover:bg-primary hover:text-black transition-all font-medium"
-                      onClick={() => setIsCompetitionsOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                  <div className="border-t border-white/10 my-3" />
-                  <Link
-                    href="/competitions"
-                    className="block px-5 py-3 text-primary font-bold hover:bg-white/10 rounded-lg transition-all"
-                  >
-                    View All Competitions →
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <NavLink href="/news">News</NavLink>
-            <NavLink href="/live">Live Scores</NavLink>
-            <NavLink href="/teams">Teams</NavLink>
-
-            {/* CTA */}
             <Link
               href="/watch"
+              onClick={closeMobileMenu}
               className="ml-6 px-8 py-3 bg-gradient-to-r from-primary to-yellow-600 text-black font-bold rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg"
             >
               Watch Live
@@ -155,51 +91,36 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <div
           className={cn(
-            "md:hidden overflow-hidden transition-all duration-500 ease-in-out bg-[#0A1E3C]",
-            isMobileMenuOpen ? "max-h-96" : "max-h-0"
+            "md:hidden overflow-hidden transition-all duration-500 ease-in-out bg-[#0A1E3C] border-t border-white/10",
+            isMobileMenuOpen ? "max-h-screen py-4" : "max-h-0"
           )}
         >
-          <div className="py-4 space-y-1 border-t border-white/10">
-            {/* Mobile links same as before... */}
-            <MobileNavLink href="/">Home</MobileNavLink>
-            <button
-              onClick={() => setIsCompetitionsOpen(!isCompetitionsOpen)}
-              className="w-full flex items-center justify-between px-6 py-3 hover:bg-secondary transition-colors"
-            >
-              <span className="font-medium">Competitions</span>
-              <ChevronDown
-                className={cn(
-                  "w-5 h-5 transition-transform",
-                  isCompetitionsOpen && "rotate-180"
-                )}
-              />
-            </button>
-            {isCompetitionsOpen && (
-              <div className="bg-secondary/30 space-y-1">
-                {[
-                  "M5 League",
-                  "M5 Cup",
-                  "Youth Championships",
-                  "Women's League",
-                ].map((item) => (
-                  <MobileNavLink key={item} href="/competitions">
-                    {item}
-                  </MobileNavLink>
-                ))}
-              </div>
-            )}
-            <MobileNavLink href="/news">News</MobileNavLink>
-            <MobileNavLink href="/live">Live Scores</MobileNavLink>
-            <MobileNavLink href="/teams">Teams</MobileNavLink>
+          <div className="space-y-1">
+            <MobileNavLink href="/" onClick={closeMobileMenu}>
+              Home
+            </MobileNavLink>
+            <MobileNavLink href="/competitions" onClick={closeMobileMenu}>
+              Competitions
+            </MobileNavLink>
+            <MobileNavLink href="/news" onClick={closeMobileMenu}>
+              News
+            </MobileNavLink>
+            <MobileNavLink href="/live" onClick={closeMobileMenu}>
+              Live Scores
+            </MobileNavLink>
+            <MobileNavLink href="/teams" onClick={closeMobileMenu}>
+              Teams
+            </MobileNavLink>
+
             <div className="px-6 pt-4">
               <Link
                 href="/watch"
-                className="block w-full text-center py-4 bg-gradient-to-r from-primary to-yellow-600 text-background font-bold rounded-xl shadow-lg hover:scale-105 transition-all duration-300"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={closeMobileMenu}
+                className="block w-full text-center py-4 bg-gradient-to-r from-primary to-yellow-600 text-black font-bold rounded-xl shadow-lg hover:scale-105 transition-all duration-300"
               >
                 Watch Live Now
               </Link>
-            </div>{" "}
+            </div>
           </div>
         </div>
       </div>
@@ -207,36 +128,42 @@ export default function Navbar() {
   );
 }
 
-// Helper components unchanged
+// Desktop Link
 function NavLink({
   href,
   children,
+  onClick,
 }: {
   href: string;
   children: React.ReactNode;
+  onClick?: () => void;
 }) {
   return (
     <Link
       href={href}
-      className="px-4 py-3 rounded-lg font-medium text-white hover:bg-white/10 transition-all duration-200"
+      onClick={onClick}
+      className="px-4 py-3 rounded-lg font-medium text-white hover:bg-white/10 hover:text-primary transition-all duration-200"
     >
       {children}
     </Link>
   );
 }
 
+// Mobile Link
 function MobileNavLink({
   href,
   children,
+  onClick,
 }: {
   href: string;
   children: React.ReactNode;
+  onClick?: () => void;
 }) {
   return (
     <Link
       href={href}
-      className="block px-6 py-3 hover:bg-secondary hover:text-primary transition-colors rounded-lg mx-3"
-      onClick={() => document.getElementById("mobile-menu")?.click()} // close menu
+      onClick={onClick}
+      className="block px-6 py-3 text-white/90 hover:bg-white/10 hover:text-primary transition-colors rounded-lg mx-3 font-medium"
     >
       {children}
     </Link>

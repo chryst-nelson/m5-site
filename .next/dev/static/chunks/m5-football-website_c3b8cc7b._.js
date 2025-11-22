@@ -29,7 +29,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f
 var __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/m5-football-website/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__ = __turbopack_context__.i("[project]/m5-football-website/node_modules/lucide-react/dist/esm/icons/menu.js [app-client] (ecmascript) <export default as Menu>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__ = __turbopack_context__.i("[project]/m5-football-website/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript) <export default as X>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__ = __turbopack_context__.i("[project]/m5-football-website/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-client] (ecmascript) <export default as ChevronDown>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/m5-football-website/lib/utils.ts [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
@@ -41,16 +40,14 @@ var _s = __turbopack_context__.k.signature();
 function Navbar() {
     _s();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [isCompetitionsOpen, setIsCompetitionsOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [isScrolled, setIsScrolled] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const desktopDropdownTimeout = (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    // Scroll effect: fully solid navy after scrolling
+    // Close mobile menu on any navigation
+    const closeMobileMenu = ()=>setIsMobileMenuOpen(false);
+    // Scroll effect
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Navbar.useEffect": ()=>{
             const handleScroll = {
-                "Navbar.useEffect.handleScroll": ()=>{
-                    setIsScrolled(window.scrollY > 20);
-                }
+                "Navbar.useEffect.handleScroll": ()=>setIsScrolled(window.scrollY > 20)
             }["Navbar.useEffect.handleScroll"];
             window.addEventListener("scroll", handleScroll);
             return ({
@@ -58,20 +55,8 @@ function Navbar() {
             })["Navbar.useEffect"];
         }
     }["Navbar.useEffect"], []);
-    // Hover handling for desktop dropdown
-    const handleMouseEnter = ()=>{
-        if (desktopDropdownTimeout.current) clearTimeout(desktopDropdownTimeout.current);
-        setIsCompetitionsOpen(true);
-    };
-    const handleMouseLeave = ()=>{
-        desktopDropdownTimeout.current = setTimeout(()=>{
-            setIsCompetitionsOpen(false);
-        }, 150);
-    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("fixed top-0 left-0 right-0 z-50 transition-all duration-500", // Base: Solid dark navy (your requested background)
-        "bg-[#0A1E3C]", // When scrolled → slightly deeper + stronger shadow
-        isScrolled && "bg-[#07152E] shadow-2xl shadow-black/50"),
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("fixed top-0 left-0 right-0 z-50 transition-all duration-500", "bg-[#0A1E3C]", isScrolled && "bg-[#07152E] shadow-2xl shadow-black/60"),
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8",
             children: [
@@ -80,7 +65,8 @@ function Navbar() {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             href: "/",
-                            className: "flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg",
+                            onClick: closeMobileMenu,
+                            className: "flex items-center gap-3 group",
                             "aria-label": "M5 Football Confederation - Home",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -91,34 +77,34 @@ function Navbar() {
                                             children: "M5"
                                         }, void 0, false, {
                                             fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                            lineNumber: 56,
+                                            lineNumber: 40,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "absolute -inset-1 bg-primary/30 blur-xl scale-0 group-hover:scale-100 transition-transform duration-500"
                                         }, void 0, false, {
                                             fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                            lineNumber: 59,
+                                            lineNumber: 43,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                    lineNumber: 55,
+                                    lineNumber: 39,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: "hidden lg:inline text-2xl font-bold tracking-wider bg-gradient-to-r from-primary to-yellow-500 bg-clip-text text-transparent",
-                                    children: "M5FC"
+                                    children: "M55FC"
                                 }, void 0, false, {
                                     fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                    lineNumber: 61,
+                                    lineNumber: 45,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/m5-football-website/components/navbar.tsx",
-                            lineNumber: 50,
+                            lineNumber: 33,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -126,144 +112,63 @@ function Navbar() {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(NavLink, {
                                     href: "/",
+                                    onClick: closeMobileMenu,
                                     children: "Home"
                                 }, void 0, false, {
                                     fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                    lineNumber: 68,
+                                    lineNumber: 52,
                                     columnNumber: 13
                                 }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "relative",
-                                    onMouseEnter: handleMouseEnter,
-                                    onMouseLeave: handleMouseLeave,
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            "aria-expanded": isCompetitionsOpen,
-                                            className: "flex items-center gap-1.5 px-4 py-3 rounded-lg hover:bg-white/10 transition-all duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "font-medium text-white",
-                                                    children: "Competitions"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                                    lineNumber: 80,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
-                                                    className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("w-4 h-4 text-white transition-transform duration-300", isCompetitionsOpen && "rotate-180 text-primary")
-                                                }, void 0, false, {
-                                                    fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                                    lineNumber: 81,
-                                                    columnNumber: 17
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                            lineNumber: 76,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-[#0A1E3C] border border-white/10 rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 origin-top", isCompetitionsOpen ? "opacity-100 visible scale-100" : "opacity-0 invisible scale-95"),
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "p-4 space-y-1",
-                                                children: [
-                                                    [
-                                                        {
-                                                            name: "M5 League",
-                                                            href: "/competitions/m5-league"
-                                                        },
-                                                        {
-                                                            name: "M5 Cup",
-                                                            href: "/competitions/m5-cup"
-                                                        },
-                                                        {
-                                                            name: "Youth Championships",
-                                                            href: "/competitions/youth"
-                                                        },
-                                                        {
-                                                            name: "Women's League",
-                                                            href: "/competitions/women"
-                                                        }
-                                                    ].map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                            href: item.href,
-                                                            className: "block px-5 py-3 rounded-lg hover:bg-primary hover:text-black transition-all font-medium",
-                                                            onClick: ()=>setIsCompetitionsOpen(false),
-                                                            children: item.name
-                                                        }, item.name, false, {
-                                                            fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                                            lineNumber: 108,
-                                                            columnNumber: 21
-                                                        }, this)),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "border-t border-white/10 my-3"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                                        lineNumber: 117,
-                                                        columnNumber: 19
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                        href: "/competitions",
-                                                        className: "block px-5 py-3 text-primary font-bold hover:bg-white/10 rounded-lg transition-all",
-                                                        children: "View All Competitions →"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                                        lineNumber: 118,
-                                                        columnNumber: 19
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                                lineNumber: 98,
-                                                columnNumber: 17
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                            lineNumber: 90,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(NavLink, {
+                                    href: "/competitions",
+                                    onClick: closeMobileMenu,
+                                    children: "Competitions"
+                                }, void 0, false, {
                                     fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                    lineNumber: 71,
+                                    lineNumber: 55,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(NavLink, {
                                     href: "/news",
+                                    onClick: closeMobileMenu,
                                     children: "News"
                                 }, void 0, false, {
                                     fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                    lineNumber: 128,
+                                    lineNumber: 58,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(NavLink, {
                                     href: "/live",
+                                    onClick: closeMobileMenu,
                                     children: "Live Scores"
                                 }, void 0, false, {
                                     fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                    lineNumber: 129,
+                                    lineNumber: 61,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(NavLink, {
                                     href: "/teams",
+                                    onClick: closeMobileMenu,
                                     children: "Teams"
                                 }, void 0, false, {
                                     fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                    lineNumber: 130,
+                                    lineNumber: 64,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/watch",
+                                    onClick: closeMobileMenu,
                                     className: "ml-6 px-8 py-3 bg-gradient-to-r from-primary to-yellow-600 text-black font-bold rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg",
                                     children: "Watch Live"
                                 }, void 0, false, {
                                     fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                    lineNumber: 133,
+                                    lineNumber: 68,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/m5-football-website/components/navbar.tsx",
-                            lineNumber: 67,
+                            lineNumber: 51,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -274,173 +179,142 @@ function Navbar() {
                                 className: "w-6 h-6"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                lineNumber: 148,
+                                lineNumber: 84,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__["Menu"], {
                                 className: "w-6 h-6"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                lineNumber: 150,
+                                lineNumber: 86,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/m5-football-website/components/navbar.tsx",
-                            lineNumber: 142,
+                            lineNumber: 78,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/m5-football-website/components/navbar.tsx",
-                    lineNumber: 48,
+                    lineNumber: 31,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("md:hidden overflow-hidden transition-all duration-500 ease-in-out bg-[#0A1E3C]", isMobileMenuOpen ? "max-h-96" : "max-h-0"),
+                    className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("md:hidden overflow-hidden transition-all duration-500 ease-in-out bg-[#0A1E3C] border-t border-white/10", isMobileMenuOpen ? "max-h-screen py-4" : "max-h-0"),
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "py-4 space-y-1 border-t border-white/10",
+                        className: "space-y-1",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileNavLink, {
                                 href: "/",
+                                onClick: closeMobileMenu,
                                 children: "Home"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                lineNumber: 164,
+                                lineNumber: 99,
                                 columnNumber: 13
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                onClick: ()=>setIsCompetitionsOpen(!isCompetitionsOpen),
-                                className: "w-full flex items-center justify-between px-6 py-3 hover:bg-secondary transition-colors",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "font-medium",
-                                        children: "Competitions"
-                                    }, void 0, false, {
-                                        fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                        lineNumber: 169,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
-                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("w-5 h-5 transition-transform", isCompetitionsOpen && "rotate-180")
-                                    }, void 0, false, {
-                                        fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                        lineNumber: 170,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                lineNumber: 165,
-                                columnNumber: 13
-                            }, this),
-                            isCompetitionsOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "bg-secondary/30 space-y-1",
-                                children: [
-                                    "M5 League",
-                                    "M5 Cup",
-                                    "Youth Championships",
-                                    "Women's League"
-                                ].map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileNavLink, {
-                                        href: "/competitions",
-                                        children: item
-                                    }, item, false, {
-                                        fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                        lineNumber: 185,
-                                        columnNumber: 19
-                                    }, this))
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileNavLink, {
+                                href: "/competitions",
+                                onClick: closeMobileMenu,
+                                children: "Competitions"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                lineNumber: 178,
-                                columnNumber: 15
+                                lineNumber: 102,
+                                columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileNavLink, {
                                 href: "/news",
+                                onClick: closeMobileMenu,
                                 children: "News"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                lineNumber: 191,
+                                lineNumber: 105,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileNavLink, {
                                 href: "/live",
+                                onClick: closeMobileMenu,
                                 children: "Live Scores"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                lineNumber: 192,
+                                lineNumber: 108,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileNavLink, {
                                 href: "/teams",
+                                onClick: closeMobileMenu,
                                 children: "Teams"
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                lineNumber: 193,
+                                lineNumber: 111,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "px-6 pt-4",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/watch",
-                                    className: "block w-full text-center py-4 bg-gradient-to-r from-primary to-yellow-600 text-background font-bold rounded-xl shadow-lg hover:scale-105 transition-all duration-300",
-                                    onClick: ()=>setIsMobileMenuOpen(false),
+                                    onClick: closeMobileMenu,
+                                    className: "block w-full text-center py-4 bg-gradient-to-r from-primary to-yellow-600 text-black font-bold rounded-xl shadow-lg hover:scale-105 transition-all duration-300",
                                     children: "Watch Live Now"
                                 }, void 0, false, {
                                     fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                    lineNumber: 195,
+                                    lineNumber: 116,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/m5-football-website/components/navbar.tsx",
-                                lineNumber: 194,
+                                lineNumber: 115,
                                 columnNumber: 13
-                            }, this),
-                            " "
+                            }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/m5-football-website/components/navbar.tsx",
-                        lineNumber: 162,
+                        lineNumber: 98,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/m5-football-website/components/navbar.tsx",
-                    lineNumber: 156,
+                    lineNumber: 92,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/m5-football-website/components/navbar.tsx",
-            lineNumber: 47,
+            lineNumber: 30,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/m5-football-website/components/navbar.tsx",
-        lineNumber: 38,
+        lineNumber: 23,
         columnNumber: 5
     }, this);
 }
-_s(Navbar, "7EZiUnU5x0Ej0zNVxp3tPL3irTE=");
+_s(Navbar, "9gS8f+QtQE+kyIRIeyB0R7XQtYQ=");
 _c = Navbar;
-// Helper components unchanged
-function NavLink({ href, children }) {
+// Desktop Link
+function NavLink({ href, children, onClick }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
         href: href,
-        className: "px-4 py-3 rounded-lg font-medium text-white hover:bg-white/10 transition-all duration-200",
+        onClick: onClick,
+        className: "px-4 py-3 rounded-lg font-medium text-white hover:bg-white/10 hover:text-primary transition-all duration-200",
         children: children
     }, void 0, false, {
         fileName: "[project]/m5-football-website/components/navbar.tsx",
-        lineNumber: 219,
+        lineNumber: 142,
         columnNumber: 5
     }, this);
 }
 _c1 = NavLink;
-function MobileNavLink({ href, children }) {
+// Mobile Link
+function MobileNavLink({ href, children, onClick }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$m5$2d$football$2d$website$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
         href: href,
-        className: "block px-6 py-3 hover:bg-secondary hover:text-primary transition-colors rounded-lg mx-3",
-        onClick: ()=>document.getElementById("mobile-menu")?.click(),
+        onClick: onClick,
+        className: "block px-6 py-3 text-white/90 hover:bg-white/10 hover:text-primary transition-colors rounded-lg mx-3 font-medium",
         children: children
     }, void 0, false, {
         fileName: "[project]/m5-football-website/components/navbar.tsx",
-        lineNumber: 236,
+        lineNumber: 163,
         columnNumber: 5
     }, this);
 }
